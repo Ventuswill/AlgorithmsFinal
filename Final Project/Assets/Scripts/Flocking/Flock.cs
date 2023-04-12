@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Flock : MonoBehaviour {
     public GameObject boidPrefab;
@@ -30,7 +31,7 @@ public class Flock : MonoBehaviour {
         for (int i = 0; i < numberOfBoids; i++)
         {
             Vector3 pos = transform.position + Random.insideUnitSphere * spawnRadius;
-            pos.y = 0.0f;
+            pos.y = 1.5f;
             Quaternion rot = Quaternion.Euler(0, Random.Range(0,360), 0);
             boids.Add(Instantiate(boidPrefab, pos,rot));
             boids[i].GetComponent<Boid>().flock = this;
@@ -45,19 +46,51 @@ public class Flock : MonoBehaviour {
     }
 	// Update is called once per frame
 	void Update () {
+
+        foreach (GameObject g in boids)
+        {
+            RaycastHit hit;
+
+            int mask = 1 << 10;
+
+            if (!Physics.Raycast(g.transform.position, Vector3.down, out hit, mask))
+            {
+                deadBoids.Add(g);
+            }
+
+        }
+
 		if (deadBoids.Count != 0)
         {
             foreach (GameObject g in deadBoids)
             {
                 boids.Remove(g);
                 // TODO - create a boom where the boid was
+                //done
+                boom = Instantiate(boom, g.transform);
                 // TODO - destroy the boid
+                //done
+                Destroy(g.gameObject);
             }
             deadBoids.Clear();
             if (boids.Count == 0)
             {
                 // TODO - destroy this swarm leader
                 // unless it's the player, and if it's the player, stop the game.
+                //done
+
+                if (player)
+                {
+#if UNITY_EDITOR
+                    UnityEditor.EditorApplication.isPlaying = false;
+#else
+                    Application.Quit();
+#endif
+                }
+                else
+                {
+                    Destroy(gameObject);
+                }
             }
         }
 	}

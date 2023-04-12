@@ -30,6 +30,7 @@ public class TrackManager : MonoBehaviour {
         for (int i = 0; i < 5; i++) // TO DO - change code
         {
             splines[i].GenerateSpline();
+
         }
         // spawn the flocks on the tracks.  Track 0 is where the player begins.
         for (int i = 0; i < 5; i++) // TO DO CHANGE CODE 
@@ -38,7 +39,7 @@ public class TrackManager : MonoBehaviour {
             // TODO - Get the follow track script, and tell it about the track manager (so it can find more tracks), and the spline.
             // make sure to set the mask on the flock, and to say which is the player. 
 
-            Instantiate(swarmleaderPrefab[i], splines[i].transform.position, Quaternion.identity);
+            Instantiate(swarmleaderPrefab[i], splines[i].points[0], Quaternion.identity);
         }
 	}
 	
