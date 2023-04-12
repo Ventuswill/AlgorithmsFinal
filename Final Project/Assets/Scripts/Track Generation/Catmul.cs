@@ -46,7 +46,7 @@ public class Catmul : MonoBehaviour
         {
             CatmulRom(i);
         }
-        // now generate the parallels
+        // now generate the parallels.
         for (int i = 0; i < spc; i++)
         {
             Vector3 a1 = lanes[1, i];
