@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Behaviour trees\SelectNextGameObject.cs" />
     <Compile Include="Assets\Scripts\Behaviour trees\Spin.cs" />
+    <Compile Include="Assets\Scripts\PatrolAI.cs" />
     <Compile Include="Assets\Scripts\Behaviour trees\MoveTo.cs" />
     <Compile Include="Assets\Scripts\Behaviour trees\Node.cs" />
     <Compile Include="Assets\Scripts\Behaviour trees\Selector.cs" />
@@ -69,8 +70,10 @@
     <Compile Include="Assets\Scripts\Flocking\Flock.cs" />
     <Compile Include="Assets\Scripts\Laser Roller Derby\Turning.cs" />
     <Compile Include="Assets\Scripts\Behaviour trees\Task.cs" />
+    <Compile Include="Assets\Scripts\AIDriver.cs" />
     <Compile Include="Assets\Scripts\Behaviour trees\Inverter.cs" />
     <Compile Include="Assets\Scripts\Laser Roller Derby\Boom.cs" />
+    <Compile Include="Assets\HumanControl.cs" />
     <Compile Include="Assets\Scripts\Behaviour trees\Sequence.cs" />
     <Compile Include="Assets\Scripts\Track Generation\TrackManager.cs" />
     <Compile Include="Assets\Scripts\Behaviour trees\NodeResult.cs" />

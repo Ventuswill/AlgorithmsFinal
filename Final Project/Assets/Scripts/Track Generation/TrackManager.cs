@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrackManager : MonoBehaviour {
+public class TrackManager : MonoBehaviour
+{
     public Catmul[] splines;
     public GameObject splinePrefab;
     public GameObject[] swarmleaderPrefab;
     public string[][] maskNames;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         maskNames = new string[5][];
 
         maskNames[0] = new string[] { "flock1", "flock2", "flock3", "flock4" };
@@ -38,12 +40,17 @@ public class TrackManager : MonoBehaviour {
             // TODO - Get the follow track script, and tell it about the track manager (so it can find more tracks), and the spline.
             // make sure to set the mask on the flock, and to say which is the player. 
 
-            Instantiate(swarmleaderPrefab[i], splines[i].transform.position, Quaternion.identity);
+            GameObject SL = Instantiate(swarmleaderPrefab[i], splines[i].sp[0].transform.position, Quaternion.identity);
+            PatrolAI Driver = SL.GetComponent<PatrolAI>();
+            Driver.waypoints = splines[i].sp;
+            Driver.SetValue("TrackManager", this);
+            Driver.SetValue("TrackIndex", i);
         }
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 }
