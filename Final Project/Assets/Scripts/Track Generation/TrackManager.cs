@@ -17,20 +17,28 @@ public class TrackManager : MonoBehaviour {
         maskNames[2] = new string[] { "flock0", "flock1", "flock3", "flock4" };
         maskNames[3] = new string[] { "flock0", "flock1", "flock2", "flock4" };
         maskNames[4] = new string[] { "flock0", "flock1", "flock2", "flock3" };
-        splines = new Catmul[1]; // TODO - change
+        splines = new Catmul[5]; // TODO - change
+        float offset = 30.0f;
         splines[0] = Instantiate(splinePrefab, new Vector3(0, 0, 0), Quaternion.identity).GetComponent<Catmul>();
+        splines[1] = Instantiate(splinePrefab, new Vector3(offset, 0, offset), Quaternion.identity).GetComponent<Catmul>();
+        splines[2] = Instantiate(splinePrefab, new Vector3(-offset, 0, offset), Quaternion.identity).GetComponent<Catmul>();
+        splines[3] = Instantiate(splinePrefab, new Vector3(offset, 0, -offset), Quaternion.identity).GetComponent<Catmul>();
+        splines[4] = Instantiate(splinePrefab, new Vector3(-offset, 0, -offset), Quaternion.identity).GetComponent<Catmul>();
+
         // TODO add code here
 
-        for (int i = 0; i < 1; i++) // TO DO - change code
+        for (int i = 0; i < 5; i++) // TO DO - change code
         {
             splines[i].GenerateSpline();
         }
         // spawn the flocks on the tracks.  Track 0 is where the player begins.
-        for (int i = 0; i < 1; i++) // TO DO CHANGE CODE 
+        for (int i = 0; i < 5; i++) // TO DO CHANGE CODE 
         {
             // TO DO - Spawn the swarm leader
             // TODO - Get the follow track script, and tell it about the track manager (so it can find more tracks), and the spline.
             // make sure to set the mask on the flock, and to say which is the player. 
+
+            Instantiate(swarmleaderPrefab[i], splines[i].transform.position, Quaternion.identity);
         }
 	}
 	
