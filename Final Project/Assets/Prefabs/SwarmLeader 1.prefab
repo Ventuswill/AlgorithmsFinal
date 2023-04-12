@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 33257362718110042}
   - component: {fileID: 23064480835833650}
   - component: {fileID: 135874872937518144}
-  - component: {fileID: 1520800045772125044}
   m_Layer: 9
   m_Name: Sphere
   m_TagString: Untagged
@@ -98,37 +97,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1520800045772125044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1518066110467762}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87c23ff2e97aea7438816c90051471e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boidPrefab: {fileID: 1911328537083616, guid: 14ce2b8087c2596418c8d599eab7ddd0, type: 3}
-  mask: []
-  numberOfBoids: 20
-  numberOfObstacles: 10
-  boids: []
-  spawnRadius: 3
-  speed: 1
-  turnspeed: 30
-  FOV: 60
-  NeighborDistanceSquared: 64
-  cohesionWeight: 1
-  alignmentWeight: 0
-  avoidanceWeight: 1
-  noise: 0.1
-  AvoidMininum: 3
-  target: {fileID: 0}
-  deadBoids: []
-  boom: {fileID: 1260984010859786, guid: 886a4d4b2ffeba041aa24c2cd01402cc, type: 3}
-  player: 0
 --- !u!1 &1947864704245304
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,6 +109,7 @@ GameObject:
   - component: {fileID: 33295780180127744}
   - component: {fileID: 23227324570838666}
   - component: {fileID: 135412392846819870}
+  - component: {fileID: 4476632045151294212}
   m_Layer: 0
   m_Name: SwarmLeader 1
   m_TagString: Untagged
@@ -227,3 +196,34 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4476632045151294212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947864704245304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87c23ff2e97aea7438816c90051471e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boidPrefab: {fileID: 1911328537083616, guid: 14ce2b8087c2596418c8d599eab7ddd0, type: 3}
+  mask: []
+  numberOfBoids: 20
+  numberOfObstacles: 10
+  boids: []
+  spawnRadius: 3
+  speed: 1
+  turnspeed: 30
+  FOV: 60
+  NeighborDistanceSquared: 64
+  cohesionWeight: 1
+  alignmentWeight: 0
+  avoidanceWeight: 1
+  noise: 0.1
+  AvoidMininum: 3
+  target: {fileID: 0}
+  deadBoids: []
+  boom: {fileID: 1260984010859786, guid: 886a4d4b2ffeba041aa24c2cd01402cc, type: 3}
+  player: 0

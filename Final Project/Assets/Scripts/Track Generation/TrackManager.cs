@@ -39,7 +39,11 @@ public class TrackManager : MonoBehaviour {
             // TODO - Get the follow track script, and tell it about the track manager (so it can find more tracks), and the spline.
             // make sure to set the mask on the flock, and to say which is the player. 
 
-            Instantiate(swarmleaderPrefab[i], splines[i].points[0], Quaternion.identity);
+            GameObject sl = Instantiate(swarmleaderPrefab[i], splines[i].sp[0].transform.position, Quaternion.identity);
+
+            Flock f = sl.GetComponent<Flock>();
+
+            f.mask = maskNames[i];
         }
 	}
 	
