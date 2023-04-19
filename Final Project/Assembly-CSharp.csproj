@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\Track Generation\Catmul.cs" />
     <Compile Include="Assets\Scripts\Behaviour trees\Wait.cs" />
     <Compile Include="Assets\Scripts\Laser Roller Derby\PlayerChangeLane.cs" />
+    <Compile Include="Assets\Scripts\Behaviour trees\PickTurn.cs" />
     <Compile Include="Assets\Scripts\Flocking\Flock.cs" />
     <Compile Include="Assets\Scripts\Laser Roller Derby\Turning.cs" />
     <Compile Include="Assets\Scripts\Behaviour trees\Task.cs" />
@@ -77,7 +78,6 @@
     <Compile Include="Assets\Scripts\Behaviour trees\Sequence.cs" />
     <Compile Include="Assets\Scripts\Track Generation\TrackManager.cs" />
     <Compile Include="Assets\Scripts\Behaviour trees\NodeResult.cs" />
-    <Compile Include="Assets\Scripts\Behaviour trees\PickTurn.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
