@@ -58,7 +58,7 @@ public class Boid : MonoBehaviour {
         // then move
 
         Vector3 pos = transform.position + transform.forward * speed * Time.deltaTime;
-        pos.y = 0.05f;
+        pos.y = 0.5f;
         transform.position = pos;
         // did I fall off the track?
         if (!Physics.Raycast(pos,-Vector3.up,5,ground))
@@ -117,5 +117,6 @@ public class Boid : MonoBehaviour {
         direction = SwarmDir + Cohesion * flock.cohesionWeight + Alignment * flock.alignmentWeight + Avoidance * flock.avoidanceWeight;
         // then renormalize again
         direction = Vector3.Normalize(direction);
+        direction.y = 0.0f;
     }
 }

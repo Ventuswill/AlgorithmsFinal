@@ -104,6 +104,14 @@ public class Catmul : MonoBehaviour
             mc.sharedMesh = null;
             mc.sharedMesh = mesh;
         }
+        LineRenderer render = GetComponent<LineRenderer>();
+        Vector3 offset = new Vector3(0, 0.1f, 0);
+        render.positionCount = spc;
+        for (int i = 0; i < spc; i++)
+        {
+            render.SetPosition(i, sp[i].transform.position+offset);
+        }
+
     }
     int getIndex(int index)
     {
