@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 23872363411874258}
   - component: {fileID: 135417798074669428}
   - component: {fileID: -445860070944799340}
+  - component: {fileID: 4799614936600727919}
   m_Layer: 0
   m_Name: SwarmLeader 4
   m_TagString: Untagged
@@ -116,6 +117,18 @@ MonoBehaviour:
   Speed: 0
   TurnSpeed: 0
   Accuracy: 0
+--- !u!114 &4799614936600727919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723075800250862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1832dc22a0f7f3d459dff44a9ce8ab92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1779636616270194
 GameObject:
   m_ObjectHideFlags: 0

@@ -73,10 +73,11 @@
     <Compile Include="Assets\Scripts\AIDriver.cs" />
     <Compile Include="Assets\Scripts\Behaviour trees\Inverter.cs" />
     <Compile Include="Assets\Scripts\Laser Roller Derby\Boom.cs" />
-    <Compile Include="Assets\HumanControl.cs" />
+    <Compile Include="Assets\Scripts\HumanControl.cs" />
     <Compile Include="Assets\Scripts\Behaviour trees\Sequence.cs" />
     <Compile Include="Assets\Scripts\Track Generation\TrackManager.cs" />
     <Compile Include="Assets\Scripts\Behaviour trees\NodeResult.cs" />
+    <Compile Include="Assets\Scripts\Behaviour trees\PickTurn.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

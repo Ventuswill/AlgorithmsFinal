@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -65,13 +65,13 @@ public class Catmul : MonoBehaviour
             MeshCollider mc = sp[i].GetComponent<MeshCollider>();
             Mesh mesh = new Mesh();
             mf.mesh = mesh;
-  
+
 
             Vector3[] vertices = new Vector3[4];
-            vertices[0] = lanes[0, i] - lanes[1,i]; // must subtract location of center or we will offset things a lot.
-            vertices[1] = lanes[2, i] - lanes[1,i]; // the verts are relative to the game object we are drawing...
-            vertices[2] = lanes[0, (i + 1) % spc] - lanes[1,i];
-            vertices[3] = lanes[2, (i + 1) % spc]- lanes[1,i];
+            vertices[0] = lanes[0, i] - lanes[1, i]; // must subtract location of center or we will offset things a lot.
+            vertices[1] = lanes[2, i] - lanes[1, i]; // the verts are relative to the game object we are drawing...
+            vertices[2] = lanes[0, (i + 1) % spc] - lanes[1, i];
+            vertices[3] = lanes[2, (i + 1) % spc] - lanes[1, i];
 
 
             mesh.vertices = vertices;
@@ -107,14 +107,14 @@ public class Catmul : MonoBehaviour
     }
     int getIndex(int index)
     {
-        return (index+ points.Length) % points.Length;
+        return (index + points.Length) % points.Length;
     }
 
     void CatmulRom(int index)
     {
 
 
-        Vector3 p0 = points[getIndex(index+0)]; // Vector3 has an implicit conversion to Vector2
+        Vector3 p0 = points[getIndex(index + 0)]; // Vector3 has an implicit conversion to Vector2
         Vector3 p1 = points[getIndex(index + 1)];
         Vector3 p2 = points[getIndex(index + 2)];
         Vector3 p3 = points[getIndex(index + 3)];
@@ -135,17 +135,17 @@ public class Catmul : MonoBehaviour
 
             Vector3 C = (t2 - t) / (t2 - t1) * B1 + (t - t1) / (t2 - t1) * B2;
 
-            if (pointIndex == 0 || sp[pointIndex-1].transform.position != C)
+            if (pointIndex == 0 || sp[pointIndex - 1].transform.position != C)
             {
-                lanes[1,pointIndex] = C;
-                sp[pointIndex++]=Instantiate(RoadPrefab,C,Quaternion.identity);
+                lanes[1, pointIndex] = C;
+                sp[pointIndex++] = Instantiate(RoadPrefab, C, Quaternion.identity);
             }
         }
     }
 
     float GetT(float t, Vector3 p0, Vector3 p1)
     {
-        float a = Mathf.Pow((p1.x - p0.x), 2.0f) + Mathf.Pow((p1.y - p0.y), 2.0f)+ Mathf.Pow((p1.z-p0.z),2.0f);
+        float a = Mathf.Pow((p1.x - p0.x), 2.0f) + Mathf.Pow((p1.y - p0.y), 2.0f) + Mathf.Pow((p1.z - p0.z), 2.0f);
         float b = Mathf.Pow(a, 0.5f);
         float c = Mathf.Pow(b, alpha);
 
@@ -156,7 +156,7 @@ public class Catmul : MonoBehaviour
     {
         if (points == null)
             return;
-        for (int i = 0; i < points.Length;i++)
+        for (int i = 0; i < points.Length; i++)
         {
             Gizmos.DrawSphere(points[i], 0.5f);
         }

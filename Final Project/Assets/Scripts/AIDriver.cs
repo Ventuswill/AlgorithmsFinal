@@ -8,33 +8,33 @@ public class AIDriver : BehaviorTree
     void Start()
     {
         // create nodes
+        Selector TreeRoot = new Selector();
+        Sequence seq = new Sequence();
         Wait timer = new Wait();
-        Task PickTurn = new Task();
+        PickTurn turn = new PickTurn();
         // create blackboard keys and initialize them with values
         // NOTE - SHOULD BE USING CONSTANTS
         SetValue("timer", 3.0f);
-        int rand = Random.Range(0, 2);
-        SetValue("PickTurn", rand);
+
+        timer.TimeToWaitKey = "timer";
+        TreeRoot.children.Add(seq);
+        seq.children.Add(turn);
+        seq.children.Add(timer);
+        TreeRoot.tree = this;
+        seq.tree = this;
+        timer.tree = this;
+        turn.tree = this;
+        root = TreeRoot;
     }
 
 
-    /*
+    
 
-    // Update is called once per frame
-    void Update()
-    {
-        PatrolAI ai = tree.gameObject.GetComponent<PatrolAI>();
-        SetValue("timer", 3.0f);
-        int rand = Random.Range(0, 2);
-
-        if (PickTurn==0)
-        {
-            ai.SetValue("TurnRequested", Turning.LEFT);
-        }
-    }
+    
+   
 
 
-    */
+    
 }
 
 
